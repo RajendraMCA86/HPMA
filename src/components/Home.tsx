@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import {
   MusicalNoteIcon,
   AcademicCapIcon,
@@ -9,7 +10,7 @@ import Hero from "./Hero";
 import Programs from "./Programs";
 import Events from "./Events";
 import LessonCard from "./LessonCard";
-import TestimonialCard from "./TestimonialCard";
+import Testimonial from "./Testimonial";
 
 interface Lesson {
   title: string;
@@ -94,7 +95,7 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero Section */}
-      <Hero/>
+      <Hero />
       <div className="flex justify-center my-8">
         <div className="h-[4px] w-1/2 bg-gradient-to-r from-burgundy-900 via-gold-500 to-burgundy-900 rounded-full"></div>
       </div>
@@ -187,19 +188,15 @@ const Home: React.FC = () => {
       {/* Testimonials Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif text-beige-900 mb-4">
-              What Our Students Say
+          <div className="text-center mb-6">
+            <h2 className="mb-8 text-center text-3xl font-bold text-gray-800">
+              What Our Students & Parents Say
             </h2>
             <p className="text-xl text-gray-600">
               Hear from our community of musicians
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial: Testimonial, index: number) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
-          </div>
+          <Testimonial />
         </div>
       </section>
 
@@ -283,12 +280,12 @@ const Home: React.FC = () => {
         </div>
         {/* Schedule a Tour Button on the center with animation */}
         <div className="text-center mt-8 down -12">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="inline-block bg-orange-500 text-gray-900 px-8 py-3 rounded-md hover:bg-yellow-400 transition-colors duration-300"
           >
             Schedule a Tour
-          </a>
+          </Link>
         </div>
       </section>
 

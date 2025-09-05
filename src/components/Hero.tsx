@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom';
+
 
 
 const Hero: React.FC = () => {
@@ -22,15 +24,15 @@ const Hero: React.FC = () => {
           Where Passion Meets Excellence in Music Education
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-          <a
-            href="#programs"
+          <Link
+            to="/programs"
             className="bg-gold-500 hover:bg-gold-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 w-64 sm:w-auto"
           >
             Explore Programs
-          </a>
-          <a
+          </Link>
+          <Link
             onClick={() => setIsBookingOpen(true)}
-            href="/bookingform"
+            to="/BookDemo"
             className="border-2 border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 w-64 sm:w-auto"
           >
             <span className="flex items-center justify-center space-x-2 cursor-pointer">
@@ -50,7 +52,7 @@ const Hero: React.FC = () => {
               </svg>
               <span>Book a Free Trial</span>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,56 +1,49 @@
 import React, { useState, useEffect } from "react";
+import { Instagram, Facebook, Youtube } from "lucide-react";
 
-// interface SidebarCTAProps {
-//   lang: "en" | "hi";
-//   setLang: React.Dispatch<React.SetStateAction<"en" | "hi">>;
-// }
 
 const SidebarCTA: React.FC<any> = () => {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const handleScroll = () => {
-    if (window.scrollY <= 100) {
-      setIsVisible(true);
-    } else if (window.scrollY < lastScrollY) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-    setLastScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
 
   return (
     <div
-      className={`
-        fixed top-24 right-1 w-auto z-50 mt-1
-        bg-yellow-500 backdrop-filter
-        shadow-md rounded-xl px-3 py-2 flex items-center gap-3
-        transition-transform duration-300 ease-in-out
-        ${isVisible ? "translate-y-0" : "-translate-y-full"}
-      `}
+      className="fixed top-24 right-1 w-auto z-50 mt-1
+        bg-white backdrop-filter shadow-md rounded-xl px-3 py-2 flex items-center gap-3
+        transition-transform duration-300 ease-in-out"
     >
-      {/* Phone */}
-      <a
-        href="tel:+918770387979"
-        className="text-sm font-semibold text-burgundy-600 hover:text-yellow-500 whitespace-nowrap"
-      >
-        +91 8770387979
-      </a>
-      {/* Translate Button with active label */}
-      {/* <button
-        onClick={() => setLang(lang === "en" ? "hi" : "en")}
-        className="text-xs bg-yellow-500 text-white px-2 py-1 rounded hover:bg-burgundy-600 transition"
-      >
-        {lang === "en" ? "हिन्दी" : "En"}
-      </button> */}
+      {/* Social Icons */}
+      <div className="flex space-x-6 p-2 ml-auto">
+        {/* Phone */}
+        <a
+          href="tel:+91 89626 15903"
+          className="text-sm font-semibold text-burgundy-600 whitespace-nowrap"
+        >
+          📞 Call: +91 89626 15903
+        </a>
+        <a
+          href="https://www.instagram.com/hidden_pearls_musical_academy/?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <Instagram className="w-5 h-5 text-pink-500 hover:scale-150 transition-transform duration-300" />
+        </a>
+        <a
+          href="https://www.facebook.com/p/Hidden-pearls-music-academy-100064009091932/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          <Facebook className="w-5 h-5 text-blue-600 hover:scale-150 transition-transform duration-300" />
+        </a>
+        <a
+          href="https://www.youtube.com/@hiddenpearlsmusicalacademy1192"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube"
+        >
+          <Youtube className="w-5 h-5 text-red-500 hover:scale-150 transition-transform duration-300" />
+        </a>
+      </div>
     </div>
   );
 };
